@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask
+  labels:
+    app: flask
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - name: flask
+        image: asia.gcr.io/soe-trial-kitamura/flask:b72409ea10cd92ca430a64be43ffe4cf68a21334
+        ports:
+        - containerPort: 80
